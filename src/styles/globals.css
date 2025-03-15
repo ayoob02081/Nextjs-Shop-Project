@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    &,
+    &.light-mode {
+      --background-app-rgb: 244, 245, 247;
+      --color-primary-900: 74, 109, 255;
+      --color-primary-800: 92, 124, 255;
+      --color-primary-700: 110, 138, 255;
+      --color-primary-600: 128, 153, 255;
+      --color-primary-500: 146, 167, 255;
+      --color-primary-400: 164, 182, 255;
+      --color-primary-300: 183, 197, 255;
+      --color-primary-200: 201, 211, 255;
+      --color-primary-100: 219, 226, 255;
+      --color-primary-50: 228, 233, 255;
+      --color-primary-0: 245, 248, 255;
+      --color-secondary-900: 42, 45, 83;
+      --color-secondary-800: 63, 66, 100;
+      --color-secondary-700: 85, 87, 117;
+      --color-secondary-600: 106, 108, 135;
+      --color-secondary-500: 127, 129, 152;
+      --color-secondary-400: 148, 150, 169;
+      --color-secondary-300: 170, 171, 186;
+      --color-secondary-200: 191, 192, 203;
+      --color-secondary-100: 212, 213, 221;
+      --color-secondary-50: 223, 223, 229;
+      --color-secondary-0: 250, 250, 250;
+      --color-success: 0, 192, 115;
+      --color-warning: 255, 153, 0;
+      --color-error: 255, 71, 87;
+      --color-red-500: 239, 68, 68;
+      --color-red-300: 252, 165, 165;
+    }
+    &.dark-mode {
+    }
+  }
+}
+
+@layer components {
+  .form {
+    @apply flex flex-col gap-y-8 p-4 rounded-xl w-full max-w-lg;
+  }
+  .textField__input {
+    @apply w-full py-3 px-4 rounded-xl bg-gray-100 text-secondary-900 border border-gray-100 outline-none duration-200 transition-all ease-in-out hover:border-primary-300 focus:outline-none focus:border-primary-300 focus:shadow-input-focus focus:bg-white;
+  }
+  .btn {
+    @apply px-2 py-1 font-bold rounded-2xl transition-all duration-300;
+  }
+  .btn--primary {
+    @apply px-4 py-3 text-white bg-primary-900 hover:bg-primary-800 shadow-lg shadow-primary-300;
+  }
+  .btn--secondary {
+    @apply px-4 py-3 text-primary-900 bg-primary-200 hover:bg-primary-600 hover:text-white shadow-lg shadow-primary-300;
+  }
+  .profileLink {
+    @apply flex items-center gap-2 text-secondary-900 hover:text-primary-800 duration-300 py-2 my-2;
+  }
+  .headerLink {
+    @apply flex flex-col justify-between items-center gap-2 py-2 hover:text-primary-800 duration-300;
+  }
+  .table__th {
+    @apply border-b-2 whitespace-nowrap border-b-gray-500 font-medium p-3 pr-8 pb-3 text-right;
+  }
+  .table__td {
+    @apply border-b whitespace-nowrap border-b-gray-300 p-3 pr-8 pb-3 text-right;
+  }
+  .badge {
+    @apply whitespace-nowrap px-3 py-1 rounded-xl;
+  }
+  .badge--primary {
+    @apply bg-primary-900 text-white;
+  }
+  .badge--secondary {
+    @apply bg-secondary-600 text-white;
+  }
+  .badge--success {
+    @apply bg-green-600 text-white;
+  }
+  .badge--error {
+    @apply bg-rose-600 text-white;
+  }
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--vazir-font);
+  min-height: 100vh;
+  user-select: none;
+  background-color: var(--background-app-rgb);
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+button:disabled {
+  cursor: not-allowed;
+  background-color: rgb(var(--color-secondary-300), 0.5);
+  color: rgb(var(--color-secondary-700), 0.5);
+  pointer-events: none;
+  box-shadow: none;
+}
+
+/* inupt number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
