@@ -1,7 +1,7 @@
 "use client";
 
 import Loading from "@/components/Loading";
-import { useGetAllCategoriess } from "@/hooks/useCategories";
+import { useGetAllCategories } from "@/hooks/useCategories";
 import { useUpdateProduct } from "@/hooks/useProducts";
 import TextField from "@/ui/TextField";
 import { useParams, useRouter } from "next/navigation";
@@ -87,7 +87,7 @@ function ProductForm({ productToEdit }) {
     countInStock,
     imageLink,
   });
-  const { data, isLoading: isLoadingProducts } = useGetAllCategoriess();
+  const { data, isLoading: isLoadingProducts } = useGetAllCategories();
   const { isPending, mutateAsync } = useUpdateProduct();
   const { categories } = data || {};
   const router = useRouter();

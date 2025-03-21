@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-function CompleteProfilePage({ children, onSubmit }) {
+function CompleteProfilePage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const router = useRouter();
@@ -22,6 +22,7 @@ function CompleteProfilePage({ children, onSubmit }) {
     try {
       const { message, user } = await completeProfile({ name, email });
       router.push("/");
+      document.location.href = "/";
       setName("");
       setEmail("");
       toast.success(message);

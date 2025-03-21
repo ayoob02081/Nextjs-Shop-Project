@@ -6,14 +6,23 @@ import SingleProduct from "./[slug]/_components/SingleProduct";
 import { cookies } from "next/headers";
 import { toStringCookies } from "@/utils/toStringCookies";
 
+export const dynamic = "force-dynamic";
+
 async function ProductsPage({ searchParams }) {
-  const cookieStore = await cookies();
+  const cookieStore = cookies();
   const strCookie = toStringCookies(cookieStore);
-  const { products } = await getAllProductsApi(
+  console.log(await searchParams);
+
+  const productsPromise = getAllProductsApi(
     queryString.stringify(await searchParams),
     strCookie
   );
-  const { categories } = await getAllCategoriesApi();
+  const categoryPromise = getAllCategoriesApi();
+
+  const [{ products }, { categories }] = await Promise.all([
+    productsPromise,
+    categoryPromise,
+  ]);
 
   return (
     <div>
@@ -21,7 +30,9 @@ async function ProductsPage({ searchParams }) {
       <div className="grid grid-cols-4">
         <CategorySidebar categories={categories} />
         <div className="col-span-3 grid xl:grid-cols-3 lg:grid-cols-2 gap-4">
-          {products &&
+          {!!products ? (
+            <span className="flex items-center justify-center font-bold text-rose-500 text-2xl">!!No Products Yet</span>
+          ) : (
             products.map((product) => {
               return (
                 <SingleProduct
@@ -30,7 +41,8 @@ async function ProductsPage({ searchParams }) {
                   product={product}
                 />
               );
-            })}
+            })
+          )}
         </div>
       </div>
     </div>

@@ -1,0 +1,11 @@
+{
+  "app": "jeawaz",
+  "port": 3000,
+  "next": {
+    "mirror": false
+  },
+  "build": {
+    "location": "iran"
+  },
+  "disks": []
+}

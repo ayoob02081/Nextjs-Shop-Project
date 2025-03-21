@@ -10,6 +10,7 @@ export const dynamicParams = false;
 async function page({ params }) {
   const { slug } = params;
   const { product } = await getProductBySlugApi(slug);
+  console.log(slug);
   console.log(product);
 
   return (
@@ -33,7 +34,7 @@ export default page;
 export async function generateStaticParams() {
   const { products } = await getAllProductsApi();
 
-  return products.map((product) => ({
+  return products?.map((product) => ({
     slug: product.slug,
   }));
 }

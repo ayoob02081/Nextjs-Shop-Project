@@ -49,8 +49,9 @@ function AuthPage() {
     e.preventDefault();
     try {
       const { message, user } = await checkOtp({ phoneNumber, otp });
-      document.location.href = "/";
+
       if (user.isActive) {
+        document.location.href = "/";
         router.push("/");
       } else {
         router.push("/complete-profile");
