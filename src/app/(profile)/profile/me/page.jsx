@@ -4,6 +4,7 @@ import Loading from "@/components/Loading";
 import { useGetUser } from "@/hooks/useAuth";
 import { updateProfileApi } from "@/services/authServices";
 import Button from "@/ui/Button";
+import GoBack from "@/ui/GoBack";
 import TextField from "@/ui/TextField";
 import { includeObj } from "@/utils/objectUtils";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -14,7 +15,6 @@ function MePage() {
   const { data, isLoading } = useGetUser();
   const [formData, setFormData] = useState({});
   const queryClient = useQueryClient();
-
 
   const { isPending: isUpdating, mutateAsync: updateProfile } = useMutation({
     mutationFn: updateProfileApi,
@@ -41,7 +41,10 @@ function MePage() {
   if (isLoading) return <Loading />;
   return (
     <div>
-      <h1>اطلاعات کاربری</h1>
+      <div className="flex items-center justify-between">
+        <h1>اطلاعات کاربری</h1>
+        <GoBack />
+      </div>
       <form className="form" onSubmit={submitHandler}>
         {Object.keys(includeObj(user, includesKey)).map((key) => {
           return (

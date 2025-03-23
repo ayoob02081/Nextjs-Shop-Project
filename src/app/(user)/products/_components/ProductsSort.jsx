@@ -43,14 +43,14 @@ function ProductsSort() {
     router.push(pathname + "?" + createQueryString("sort", value));
   };
 
-  useEffect(()=>{
-    setSort(searchParams.get("sort") ||"")
-  },[searchParams])
+  useEffect(() => {
+    setSort(searchParams.get("sort") || "");
+  }, [searchParams]);
 
   return (
-    <div>
-      <p className="font-bold mb-4">مرتب‌سازی</p>
-      <ul className="space-y-4">
+    <div className="flex flex-col items-center justify-center sm:block max-sm:border-b max-sm:py-4">
+      <p className="font-bold mb-4 max-sm:text-sm">مرتب‌سازی</p>
+      <ul className="flex items-center justify-center gap-4 sm:block sm:space-y-4 max-sm:text-xs">
         {sortOptions.map(({ id, value, label }) => {
           return (
             <RadioButton

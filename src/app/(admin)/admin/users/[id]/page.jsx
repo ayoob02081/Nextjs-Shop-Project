@@ -3,6 +3,7 @@
 import { useGetAllUsers } from "@/hooks/useAuth";
 import Loading from "@/components/Loading";
 import { useParams } from "next/navigation";
+import GoBack from "@/ui/GoBack";
 
 function UsersPage() {
   const { id } = useParams();
@@ -17,7 +18,10 @@ function UsersPage() {
 
   return (
     <div className="space-y-6">
-      <h1 className="font-bold text-secondary-900">اطلاعات کاربر</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="font-bold text-secondary-900">اطلاعات کاربر</h1>
+        <GoBack />
+      </div>
       <div>{currentUser && currentUser[0].name}</div>
     </div>
   );

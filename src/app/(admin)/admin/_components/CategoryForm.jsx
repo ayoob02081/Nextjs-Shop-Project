@@ -44,8 +44,8 @@ export const categoryTypes = [
 ];
 
 function CategoryForm({
+  formData,
   onSubmit,
-  category,
   handleChange,
   setSelectedType,
   selectedType,
@@ -58,7 +58,7 @@ function CategoryForm({
           key={item.id}
           label={item.label}
           name={item.name}
-          value={category[item.name] || ""}
+          value={formData[item.name] || ""}
           onChange={handleChange}
         />
       ))}

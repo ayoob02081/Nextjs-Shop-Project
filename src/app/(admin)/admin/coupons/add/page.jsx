@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { useAddCoupon } from "@/hooks/useCoupon";
 import CouponForm from "../../_components/CouponForm";
 import { useGetAllProducts } from "@/hooks/useProducts";
+import GoBack from "@/ui/GoBack";
 
 function AddProductPage() {
   const [coupon, setCoupon] = useState({
@@ -44,9 +45,12 @@ function AddProductPage() {
 
   return (
     <div className="space-y-8 w-full max-w-sm h-auto">
-      <h1 className="font-bold text-secondary-900 text-xl">
-        اضافه کردن کد تخفیف
-      </h1>
+      <div className="flex items-center justify-between">
+        <h1 className="font-bold text-secondary-900 text-xl">
+          اضافه کردن کد تخفیف
+        </h1>
+        <GoBack />
+      </div>
       <CouponForm
         coupon={coupon}
         products={products}

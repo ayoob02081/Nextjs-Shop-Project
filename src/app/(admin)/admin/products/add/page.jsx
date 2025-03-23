@@ -3,6 +3,7 @@
 import Loading from "@/components/Loading";
 import { useGetAllCategories } from "@/hooks/useCategories";
 import { useAddProduct } from "@/hooks/useProducts";
+import GoBack from "@/ui/GoBack";
 import TextField from "@/ui/TextField";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -98,7 +99,12 @@ function AddProductPage() {
 
   return (
     <div className="space-y-8 w-full max-w-sm h-auto">
-      <h1 className="font-bold text-secondary-900 text-xl">اضافه کردن محصول</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="font-bold text-secondary-900 text-xl">
+          اضافه کردن محصول
+        </h1>
+        <GoBack />
+      </div>
       <form className="form" onSubmit={handleSubmit}>
         {productFormData.map((item) => {
           // console.log(item);

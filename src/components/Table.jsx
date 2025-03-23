@@ -1,6 +1,6 @@
 function Table({ children }) {
   return (
-    <div className="bg-secondary-0 overflow-x-auto">
+    <div className="bg-secondary-0 flex overflow-x-auto">
       <table className="border-collapse table-auto w-full min-[800px] text-sm">
         {children}
       </table>

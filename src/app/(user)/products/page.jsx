@@ -11,8 +11,6 @@ export const dynamic = "force-dynamic";
 async function ProductsPage({ searchParams }) {
   const cookieStore = cookies();
   const strCookie = toStringCookies(cookieStore);
-  console.log(await searchParams);
-
   const productsPromise = getAllProductsApi(
     queryString.stringify(await searchParams),
     strCookie
@@ -26,23 +24,21 @@ async function ProductsPage({ searchParams }) {
 
   return (
     <div>
-      <h1 className="text-xl font-bold mb-6">صفحه محصولات</h1>
-      <div className="grid grid-cols-4">
+      <h1 className="flex items-center justify-center text-xl font-bold mb-1 text-primary-900 border-b border-primary-800 pb-2">
+        محصولات
+      </h1>
+      <div className="grid grid-cols-2 sm:grid-cols-3 p-4 gap-y-10">
         <CategorySidebar categories={categories} />
-        <div className="col-span-3 grid xl:grid-cols-3 lg:grid-cols-2 gap-4">
-          {!!products ? (
-            <span className="flex items-center justify-center font-bold text-rose-500 text-2xl">!!No Products Yet</span>
-          ) : (
-            products.map((product) => {
-              return (
-                <SingleProduct
-                  className="row-span-1"
-                  key={product._id}
-                  product={product}
-                />
-              );
-            })
-          )}
+        <div className="col-span-2 sm:col-span-2 grid xl:grid-cols-3 lg:grid-cols-2 gap-8">
+          {products.map((product) => {
+            return (
+              <SingleProduct
+                className="row-span-1 container max-w-[400px]"
+                key={product._id}
+                product={product}
+              />
+            );
+          })}
         </div>
       </div>
     </div>

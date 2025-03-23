@@ -10,8 +10,8 @@ export const dynamicParams = false;
 async function page({ params }) {
   const { slug } = params;
   const { product } = await getProductBySlugApi(slug);
-  console.log(slug);
-  console.log(product);
+  // console.log(slug);
+  // console.log(product);
 
   return (
     <div>

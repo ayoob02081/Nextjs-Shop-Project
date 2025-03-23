@@ -14,10 +14,11 @@ import {
 } from "@heroicons/react/24/outline";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
 function AdminSideBar() {
+  const pathName = usePathname();
   const router = useRouter();
   const queryClient = useQueryClient();
   const { isPending, mutateAsync: logout } = useMutation({
@@ -47,44 +48,71 @@ function AdminSideBar() {
           </Link>
         </li>
         <li>
-          <Link className="profileLink" href={"/admin"}>
+          <Link  className={`${
+              pathName.endsWith("/admin") ? "text-primary-900" : ""
+            } profileLink`} href={"/admin"}>
             <Squares2X2Icon className="size-5" />
             <span>داشبورد</span>
           </Link>
         </li>
         <li>
-          <Link className="profileLink" href="/admin/users">
+          <Link
+            className={`${
+              pathName.startsWith("/admin/users") ? "text-primary-900" : ""
+            } profileLink`}
+            href="/admin/users"
+          >
             <UsersIcon className="size-5" />
             <span>کاربران</span>
           </Link>
         </li>
         <li>
-          <Link className="profileLink" href={"/admin/products"}>
+          <Link
+            className={`${
+              pathName.startsWith("/admin/products") ? "text-primary-900" : ""
+            } profileLink`}
+            href={"/admin/products"}
+          >
             <RectangleGroupIcon className="size-5" />
             <span>محصولات</span>
           </Link>
         </li>
         <li>
-          <Link className="profileLink" href={"/admin/categories"}>
+          <Link
+            className={`${
+              pathName.startsWith("/admin/categories") ? "text-primary-900" : ""
+            } profileLink`}
+            href={"/admin/categories"}
+          >
             <SwatchIcon className="size-5" />
             <span>دسته‌بندی‌ها</span>
           </Link>
         </li>
         <li>
-          <Link className="profileLink" href={"/admin/payments"}>
+          <Link
+            className={`${
+              pathName.startsWith("/admin/payments") ? "text-primary-900" : ""
+            } profileLink`}
+            href={"/admin/payments"}
+          >
             <ClipboardDocumentCheckIcon className="size-5" />
             <span>سفارشات</span>
           </Link>
         </li>
         <li>
-          <Link className="profileLink" href={"/admin/coupons"}>
+          <Link
+            className={`${
+              pathName.startsWith("/admin/coupons") ? "text-primary-900" : ""
+            } profileLink`}
+            href={"/admin/coupons"}
+          >
             <TicketIcon className="size-5" />
             <span>کد تخفیف</span>
           </Link>
         </li>
 
         <li>
-          <Button className="profileLink" onClick={logoutHandler}>
+          <Button className="profileLink w-full" onClick={logoutHandler}>
             <ArrowRightStartOnRectangleIcon className="size-5" />
             <span>خروج از حساب کاربری</span>
           </Button>

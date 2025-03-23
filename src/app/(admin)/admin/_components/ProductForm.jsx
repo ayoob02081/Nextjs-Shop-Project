@@ -4,6 +4,7 @@ import Loading from "@/components/Loading";
 import { useGetAllCategories } from "@/hooks/useCategories";
 import { useUpdateProduct } from "@/hooks/useProducts";
 import TextField from "@/ui/TextField";
+import { useQueryClient } from "@tanstack/react-query";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -59,8 +60,9 @@ const productFormData = [
 ];
 
 function ProductForm({ productToEdit }) {
+  const queryClient = useQueryClient();
   const { id } = useParams();
-  console.log(productToEdit);
+  // console.log(productToEdit);
   const {
     _id,
     category,
@@ -109,6 +111,7 @@ function ProductForm({ productToEdit }) {
           category: selectedCategory._id,
         },
       });
+      queryClient.invalidateQueries(["queryClient"]);
       router.push("/admin/products");
       toast.success(message);
     } catch (error) {
@@ -119,8 +122,6 @@ function ProductForm({ productToEdit }) {
   return (
     <form className="form" onSubmit={handleSubmit}>
       {productFormData.map((item) => {
-        // console.log(item);
-
         return (
           <TextField
             key={item.id}

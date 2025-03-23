@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { useGetCouponById, useUpdateCoupon } from "@/hooks/useCoupon";
 import { useGetAllProducts } from "@/hooks/useProducts";
 import CouponForm from "../../../_components/CouponForm";
+import GoBack from "@/ui/GoBack";
 
 // const includesCouponKey = ["code", "amount", "usageLimit"];
 
@@ -66,7 +67,12 @@ function EditCouponPage() {
 
   return (
     <div className="space-y-8 w-full max-w-sm h-auto">
-      <h1 className="font-bold text-secondary-900 text-xl">ویرایش کد تخفیف</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="font-bold text-secondary-900 text-xl">
+          ویرایش کد تخفیف
+        </h1>
+        <GoBack />
+      </div>
       <CouponForm
         coupon={formData}
         products={products}

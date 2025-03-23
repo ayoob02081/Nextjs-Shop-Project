@@ -9,7 +9,9 @@ import CartSummery from "./_components/CartSummery";
 function cartPage() {
   const { data, isLoading } = useGetUser();
   const { user, cart } = data || {};
+
   if (isLoading) return <Loading />;
+
   if (!user || !data)
     return (
       <div className="container lg:max-w-screen-lg">
@@ -19,6 +21,7 @@ function cartPage() {
         </Link>
       </div>
     );
+
   if (!user.cart?.products || user.cart?.products.length === 0)
     return (
       <div className="container lg:max-w-screen-lg">
@@ -28,9 +31,10 @@ function cartPage() {
         </Link>
       </div>
     );
+
   return (
-    <div className="grid grid-cols-4 gap-4">
-      <div className="col-span-3 space-y-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="col-span-1 md:col-span-2 space-y-8">
         {cart &&
           cart.productDetail.map((item) => (
             <CartItem key={item._id} product={item} />

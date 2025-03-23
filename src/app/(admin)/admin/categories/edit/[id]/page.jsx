@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { includeObj } from "@/utils/objectUtils";
+import GoBack from "@/ui/GoBack";
 
 const includesCategoryKey = ["title", "englishTitle", "description"];
 
@@ -16,7 +17,7 @@ function EditCategoryPage() {
   const { id } = useParams();
   const { data, isLoading } = useGetCategoryById(id);
   const { category } = data || {};
-  const { _id, title, englishTitle, description } = category || {};
+  const { title, englishTitle, description } = category || {};
   const [formData, setFormData] = useState({
     title,
     englishTitle,
@@ -27,8 +28,6 @@ function EditCategoryPage() {
 
   const { isPending, updateCategory } = useUpdateCategory();
   const router = useRouter();
-
-  // console.log(category);
 
   useEffect(() => {
     if (category) {
@@ -45,7 +44,7 @@ function EditCategoryPage() {
     e.preventDefault();
     try {
       const { message } = await updateCategory({
-        categoryId: _id,
+        categoryId: id,
         data: { ...formData, type: selectedType.name },
       });
       router.push("/admin/categories");
@@ -59,9 +58,14 @@ function EditCategoryPage() {
 
   return (
     <div className="space-y-8 w-full max-w-sm h-auto">
-      <h1 className="font-bold text-secondary-900 text-xl">ویرایش دسته‌بندی</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="font-bold text-secondary-900 text-xl">
+          ویرایش دسته‌بندی
+        </h1>
+        <GoBack />
+      </div>
       <CategoryForm
-        category={category}
+        formData={formData}
         handleChange={handleChange}
         isPending={isPending}
         onSubmit={handleSubmit}

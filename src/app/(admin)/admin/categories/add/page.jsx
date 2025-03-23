@@ -5,6 +5,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useAddCategory } from "@/hooks/useCategories";
 import CategoryForm from "../../_components/CategoryForm";
+import GoBack from "@/ui/GoBack";
 
 function AddProductPage() {
   const [category, setCategory] = useState({
@@ -37,11 +38,14 @@ function AddProductPage() {
 
   return (
     <div className="space-y-8 w-full max-w-sm h-auto">
-      <h1 className="font-bold text-secondary-900 text-xl">
-        اضافه کردن دسته‌بندی
-      </h1>
+      <div className="flex items-center justify-between">
+        <h1 className="font-bold text-secondary-900 text-xl">
+          اضافه کردن دسته‌بندی
+        </h1>
+        <GoBack />
+      </div>
       <CategoryForm
-        category={category}
+        formData={category}
         handleChange={handleChange}
         isPending={isPending}
         onSubmit={handleSubmit}

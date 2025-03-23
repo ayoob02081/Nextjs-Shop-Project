@@ -4,6 +4,7 @@ import Header from "@/pages/Header";
 import Providers from "@/pages/Providers";
 import { Toaster } from "react-hot-toast";
 import AdminSideBar from "./_components/AdminSideBar";
+import HamburgerMenu from "@/components/HambergerMenu";
 
 export default function AdminLayout({ children }) {
   return (
@@ -13,12 +14,14 @@ export default function AdminLayout({ children }) {
       >
         <Providers>
           <Toaster />
-          <Header />
-          <div className="grid grid-cols-4 h-screen mt-10">
-            <div className="col-span-1 bg-gray-100 overflow-y-auto p-4">
+          <HamburgerMenu>
+            <AdminSideBar />
+          </HamburgerMenu>
+          <div className="flex flex-col sm:grid sm:grid-cols-3 h-screen mt-10">
+            <div className="hidden sm:block bg-gray-100 overflow-y-auto p-4">
               <AdminSideBar />
             </div>
-            <div className="col-span-3 overflow-y-auto p-4 bg-secondary-0 shadow-md rounded-xl overflow-hidden">
+            <div className="col-span-3 sm:col-span-2 overflow-y-auto p-4 bg-secondary-0 shadow-md rounded-xl h-screen overflow-hidden">
               {children}
             </div>
           </div>

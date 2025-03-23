@@ -109,7 +109,7 @@ function CartEvents({ product, className }) {
         </div>
       )}
       {isInCart(product, user) && pathname !== "/cart" ? (
-        <div className="text-primary-900 font-bold py-2">
+        <div className=" hover:bg-primary-800 bg-primary-900 px-4 rounded-xl text-white duration-300 font-bold py-3">
           <Link href={"/cart"}>ادامه سفارش</Link>
         </div>
       ) : null}

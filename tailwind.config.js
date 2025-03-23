@@ -32,7 +32,6 @@ module.exports = {
           100: withOpacity("--color-primary-100"),
           50: withOpacity("--color-primary-50"),
           0: withOpacity("--color-primary-0"),
-
         },
         secondary: {
           900: withOpacity("--color-secondary-900"),
@@ -46,7 +45,6 @@ module.exports = {
           100: withOpacity("--color-secondary-100"),
           50: withOpacity("--color-secondary-50"),
           0: withOpacity("--color-secondary-0"),
-
         },
         success: withOpacity("--color-success"),
         warning: withOpacity("--color-warning"),
@@ -60,6 +58,9 @@ module.exports = {
       },
       boxShadow: {
         "input-focus": "0 12px 24px -8px rgb(var(--color-primary-300))",
+      },
+      transitionProperty: {
+        height: "height",
       },
     },
   },

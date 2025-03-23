@@ -3,10 +3,9 @@ import vazirFont from "@/constants/localFonts";
 import Providers from "@/pages/Providers";
 import { Toaster } from "react-hot-toast";
 import SideBar from "./_components/SideBar";
-import Header from "@/pages/Header";
+import HamburgerMenu from "@/components/HambergerMenu";
 
 export default function ProfileLayout({ children }) {
-  
   return (
     <html lang="en" dir="rtl" className="light-mode">
       <body
@@ -14,13 +13,14 @@ export default function ProfileLayout({ children }) {
       >
         <Providers>
           <Toaster />
-          <Header />
-          {/* <Link href={mov}>ddd</Link> */}
-          <div className="grid grid-cols-4 h-screen mt-10">
-            <div className="col-span-1 bg-gray-100 overflow-y-auto p-4">
+          <HamburgerMenu>
+            <SideBar />
+          </HamburgerMenu>
+          <div className="flex flex-col sm:grid sm:grid-cols-3 h-screen mt-10">
+            <div className="hidden sm:block bg-gray-100 overflow-y-auto p-4">
               <SideBar />
             </div>
-            <div className="col-span-3 overflow-y-auto p-4 bg-secondary-0 shadow-md rounded-xl overflow-hidden">
+            <div className=" sm:col-span-2 overflow-y-auto h-screen p-4 bg-secondary-0 shadow-md rounded-xl overflow-hidden">
               {children}
             </div>
           </div>

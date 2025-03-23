@@ -9,7 +9,7 @@ function CartItem({ product }) {
       <div className="flex-1">
         <span className=" font-bold">{product.title}</span>
       </div>
-      <div className=" flex gap-10 items-center justify-between">
+      <div className=" flex max-md:flex-col gap-10 items-center justify-between">
         <div>
           قیمت :{" "}
           <span
