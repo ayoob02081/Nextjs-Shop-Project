@@ -49,7 +49,9 @@ function ProductsSort() {
 
   return (
     <div className="flex flex-col items-center justify-center sm:block max-sm:border-b max-sm:py-4">
-      <p className="font-bold mb-4 max-sm:text-sm">مرتب‌سازی</p>
+      <p className="font-bold mb-4 max-sm:text-sm text-secondary-900">
+        مرتب‌سازی
+      </p>
       <ul className="flex items-center justify-center gap-4 sm:block sm:space-y-4 max-sm:text-xs">
         {sortOptions.map(({ id, value, label }) => {
           return (

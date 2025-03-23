@@ -24,8 +24,8 @@ function CartSummery({ payDetail }) {
   };
 
   return (
-    <div className="border-2 p-4 rounded-xl">
-      <p className="font-bold mb-4">اطلاعات پرداخت</p>
+    <div className="border border-secondary-400 shadow-md p-4 rounded-xl">
+      <p className="font-bold mb-4 text-secondary-900">اطلاعات پرداخت</p>
       <div className="mb-4 flex items-center justify-between">
         <span>جمع کل: </span>
         <span>{toPersianNumbersWithComma(totalGrossPrice)} </span>
@@ -35,8 +35,10 @@ function CartSummery({ payDetail }) {
         <span>{toPersianNumbersWithComma(totalOffAmount)} -</span>
       </div>
       <div className="mb-4 flex items-center justify-between font-bold">
-        <span>مبلغ قابل پرداخت: </span>
-        <span>{toPersianNumbersWithComma(totalPrice)} </span>
+        <span className="text-secondary-900">مبلغ قابل پرداخت: </span>
+        <span className="text-primary-900">
+          {toPersianNumbersWithComma(totalPrice)}{" "}
+        </span>
       </div>
       {isPending ? (
         <Loading />

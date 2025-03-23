@@ -5,7 +5,7 @@ import CartEvents from "../../products/[slug]/_components/CartEvents";
 
 function CartItem({ product }) {
   return (
-    <div className="border-2 rounded-lg p-4 flex gap-10 items-center justify-between">
+    <div className="border border-secondary-100 rounded-lg p-4 flex gap-10 items-center justify-between shadow-md">
       <div className="flex-1">
         <span className=" font-bold">{product.title}</span>
       </div>

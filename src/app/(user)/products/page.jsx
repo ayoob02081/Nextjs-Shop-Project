@@ -23,17 +23,17 @@ async function ProductsPage({ searchParams }) {
   ]);
 
   return (
-    <div>
+    <div className="w-full">
       <h1 className="flex items-center justify-center text-xl font-bold mb-1 text-primary-900 border-b border-primary-800 pb-2">
         محصولات
       </h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 p-4 gap-y-10">
+      <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 p-4 gap-y-10">
         <CategorySidebar categories={categories} />
-        <div className="col-span-2 sm:col-span-2 grid xl:grid-cols-3 lg:grid-cols-2 gap-8">
+        <div className="col-span-2 xl:col-span-4 grid xl:grid-cols-3 lg:grid-cols-2 gap-8">
           {products.map((product) => {
             return (
               <SingleProduct
-                className="row-span-1 container max-w-[400px]"
+                className="row-span-1 container max-w-[330px]"
                 key={product._id}
                 product={product}
               />

@@ -37,7 +37,7 @@ function ProductsFilter({ categories }) {
   };
   return (
     <div className="flex flex-col items-center justify-center sm:block max-sm:border-b max-sm:pb-4">
-      <p className="font-bold mb-4 max-sm:text-sm">دسته‌بندی‌ها</p>
+      <p className="font-bold mb-4 max-sm:text-sm text-secondary-900">دسته‌بندی‌ها</p>
       <ul className="flex items-center justify-center flex-wrap gap-5 sm:block sm:space-y-4 max-sm:text-xs">
         {categories.map(({ _id, englishTitle, title }) => (
           <CheckBox

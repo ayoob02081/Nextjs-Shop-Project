@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <Toaster />
           <Header className="mb-10" />
-          <div className="flex items-center justify-center container xl:max-w-screen-xl px-4 sm:p-0">
+          <div className="flex justify-center container xl:max-w-screen-xl px-4 sm:p-0">
             {children}
           </div>
         </Providers>
