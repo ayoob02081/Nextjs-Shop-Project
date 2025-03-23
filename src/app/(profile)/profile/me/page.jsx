@@ -40,9 +40,9 @@ function MePage() {
 
   if (isLoading) return <Loading />;
   return (
-    <div>
+    <div className="space-y-8">
       <div className="flex items-center justify-between">
-        <h1>اطلاعات کاربری</h1>
+        <h1 className="font-bold text-secondary-900 text-xl">اطلاعات کاربری</h1>
         <GoBack />
       </div>
       <form className="form" onSubmit={submitHandler}>

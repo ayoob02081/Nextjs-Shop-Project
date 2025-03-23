@@ -12,8 +12,8 @@ function PaymentPage() {
   if (isLoading) return <Loading />;
 
   return (
-    <div>
-      <h1>سفارشات کاربر</h1>
+    <div className="space-y-8">
+      <h1 className="font-bold text-secondary-900 text-xl">سفارشات شما</h1>
       <PaymentDetail payments={payments}/>
     </div>
   );

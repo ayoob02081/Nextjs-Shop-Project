@@ -30,7 +30,7 @@ export default function HamburgerMenu({ children }) {
         >
           <HamMenuIcon open={open} className="size-8" />
         </button>
-        <span>logo</span>
+        <span className="text-xl font-bold text-primary-900">Jeawaz</span>
         {pathName.startsWith("/profile") && (
           <Link
             className={` headerLink justify-center relative`}

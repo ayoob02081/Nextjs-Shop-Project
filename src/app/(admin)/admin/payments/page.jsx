@@ -13,8 +13,8 @@ function AllPaymentsPage() {
   isLoading && <Loading />;
 
   return (
-    <div className="space-y-6">
-      <h1 className="font-bold text-secondary-900">سفارشات</h1>
+    <div className="space-y-2">
+      <h1 className="font-bold text-secondary-900 text-xl pb-6">سفارشات</h1>
       {payments && payments.length > 0 ? (
         <PaymentsListTable payments={payments} />
       ) : (

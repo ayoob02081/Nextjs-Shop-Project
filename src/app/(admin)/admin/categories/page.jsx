@@ -14,9 +14,9 @@ function CategoriesPage() {
   isLoading && <Loading />;
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-cente sm: justify-between overflow-auto">
-        <h1 className="font-bold text-secondary-900">دسته‌بندی‌ها</h1>
+    <div className="space-y-2">
+      <div className="flex items-center justify-between pb-6">
+        <h1 className="font-bold text-secondary-900 text-xl">دسته‌بندی‌ها</h1>
         <Link href={"/admin/categories/add"} className="btn btn--primary">
           اضافه کردن دسته‌بندی
         </Link>

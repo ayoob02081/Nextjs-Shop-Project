@@ -13,9 +13,9 @@ function CouponsPage() {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="font-bold text-secondary-900">کد تخفیف‌ها</h1>
+    <div className="space-y-2">
+      <div className="flex items-center justify-between pb-6">
+        <h1 className="font-bold text-secondary-900 text-xl">کد تخفیف‌ها</h1>
         <Link href={"/admin/coupons/add"} className="btn btn--primary">
           اضافه کردن کد تخفیف
         </Link>

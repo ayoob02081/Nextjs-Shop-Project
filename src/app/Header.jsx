@@ -30,7 +30,7 @@ function Header({ className }) {
               href={"/"}
             >
               <Squares2X2Icon className="size-7" />
-              <span>LOGO</span>
+              <span className="font-bold text-secondary-900">Jeawaz</span>
             </Link>
           </li>
           <li className="flex-none">

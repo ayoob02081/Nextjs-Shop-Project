@@ -12,8 +12,10 @@ function UsersPage() {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="space-y-6">
-      <h1 className="font-bold text-secondary-900">اطلاعات کاربران</h1>
+    <div className="space-y-2">
+      <h1 className="font-bold text-secondary-900 text-xl pb-6">
+        اطلاعات کاربران
+      </h1>
       <UsersListTable users={users} />
     </div>
   );
